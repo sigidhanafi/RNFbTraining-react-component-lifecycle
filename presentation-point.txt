@@ -1,0 +1,71 @@
+Hello, my name is Hanafi and Im here to learn and talk about on of the basic concept in react
+
+So, I know that yesterday we have already learn react, react native and component lifecycle with Mr. Rod Nolan.
+And today, I will covered again because this is my job to make a presentation about some thing.
+And I think this topic is very - very important concept.
+
+So let's start
+
+We already know, that react is component based
+  - react or react native application is composed by many many component
+  - with component, we can split application UI into independent and reusable
+  - each component has several lifecycle methods that we can override to run code at particular times in the process
+  - each component follow a lifecycle methods,
+  - that why component life cycle must know by people that whant to expert on react
+  - lifecycle methods will fired with several event
+
+Mounting
+  on mounting event, component will execute this methods :
+  constructor()
+    - called before component mounted
+    - this method is right place to init our state
+    - constructor method is not required on react component,
+      - if we don't need initialize state and bind other method we can remove constructor methods,
+    - and react sill running well 
+  
+  componentWillMount()
+    - this method is invoked immediately before initial rendering
+    - because this method execute before rendering, updating state in this method will not trigger re rendering process
+    - this method is not required
+  
+  render()
+    - this method is required
+    - return a single react elemet such as <div />, <View /> or another react elemet
+    - must pure function or does not updating component state
+
+  componentDidMount()
+    - run after initial rendering
+    - run side-effects on this method like call request to API to fetch data and other
+    - setting state on this method, will trigger re rendering
+
+Updating
+  componentWillReceiveProps()
+    - this method will execute when component receive new props
+    - in this method we can update component state that have relation with props
+
+  shouldComponentUpdate()
+    - this method is look like an question, right?
+    - this method used to determine that our component need rerender or not
+    - as a default, this method return true
+    - to avoid rerender, we can return false in any condition
+    - if this method return false, componentWillUpdate, render, componentDidUpdate will not be invoked
+
+  componentWillUpdate()
+    - is invoked immediately before rendering when new props or state are being received
+    - perform preparation before update or rerender
+    - cann't call this.setState here
+
+  render()
+  
+  componentDidUpdate()
+    - is invoked immediately after updating occurs
+    - this method is not called for the initial render
+    - we can operate the DOM API here
+
+Unmounting
+  componentWillUnmount()
+    - is invoked immediately before a component is unmounted and destroyed
+    - Perform any necessary cleanup in this method
+    - such as invalidating timers, canceling network requests, or cleaning up any DOM elements that were created in componentDidMount
+
+Demo :
